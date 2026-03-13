@@ -28,7 +28,8 @@
                             <td>{{ $contact->phone }}</td>
                             <td>{{ str()->limit($contact->notes ?? '', 30) }}</td>
                             <td class="text-end actions-cell">
-                                <a href="{{ route('contacts.edit', $contact->id) }}" class="btn-link">Modifier</a>
+                                <a href="{{ route('contacts.show', $contact->id) }}" class="btn-view">Voir</a>
+                                <a href="{{ route('contacts.edit', $contact->id) }}" class="btn-edit">Modifier</a>
                                 <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" class="d-inline form-delete">
                                     @csrf
                                     @method('DELETE')
