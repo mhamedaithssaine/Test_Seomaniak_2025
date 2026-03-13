@@ -27,8 +27,13 @@
                             <td>{{ $contact->email }}</td>
                             <td>{{ $contact->phone }}</td>
                             <td>{{ str()->limit($contact->notes ?? '', 30) }}</td>
-                            <td class="text-end">
+                            <td class="text-end actions-cell">
                                 <a href="{{ route('contacts.edit', $contact->id) }}" class="btn-link">Modifier</a>
+                                <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" class="d-inline form-delete">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" class="btn-danger btn-delete">Supprimer</button>
+                                </form>
                             </td>
                         </tr>
                     @empty
@@ -46,4 +51,28 @@
             </div>
         @endif
     </div>
+
+    @push('scripts')
+    <script>
+        document.querySelectorAll('.btn-delete').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const form = this.closest('form');
+                Swal.fire({
+                    title: 'Supprimer ce contact ?',
+                    text: 'Cette action est irréversible.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc2626',
+                    cancelButtonColor: '#64748b',
+                    confirmButtonText: 'Oui, supprimer',
+                    cancelButtonText: 'Annuler'
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
+    @endpush
 @endsection

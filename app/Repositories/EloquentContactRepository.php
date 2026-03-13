@@ -28,4 +28,9 @@ class EloquentContactRepository implements ContactRepositoryInterface
 
         return $contact;
     }
+
+    public function delete(Contact $contact): void
+    {
+        $contact->delete();
+    }
 }

@@ -40,4 +40,10 @@ class ContactService
 
         return $this->contacts->update($contact, $data);
     }
+
+    public function delete(int $id): void
+    {
+        $contact = $this->get($id);
+        $this->contacts->delete($contact);
+    }
 }
