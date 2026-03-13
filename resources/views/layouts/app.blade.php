@@ -36,7 +36,7 @@
             padding: 1rem 0;
         }
         .nav-inner {
-            max-width: 960px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
@@ -49,7 +49,7 @@
         }
         .nav-brand:hover { color: var(--accent); }
         .main {
-            max-width: 960px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
@@ -142,7 +142,7 @@
             gap: 1rem;
         }
         .page-title { font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; color: var(--text); }
-        .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+        .table-wrap { border-radius: var(--radius); border: 1px solid var(--border); overflow-x: auto; min-width: 0; }
         .table-wrap--scroll { max-height: 70vh; overflow-y: auto; }
         .data-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
         .data-table th, .data-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
@@ -150,6 +150,15 @@
         .data-table tr:last-child td { border-bottom: none; }
         .data-table tbody tr:hover { background: #f8fafc; }
         .data-table .text-end { text-align: right; }
+        .actions-cell {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            flex-wrap: nowrap;
+        }
+        .actions-cell .form-delete { flex: 0 0 auto; }
         .btn-link {
             display: inline-flex;
             align-items: center;
@@ -166,6 +175,22 @@
             transition: border-color 0.2s, background 0.2s;
         }
         .btn-link:hover { background: #f0fdfa; border-color: var(--accent); color: var(--accent-hover); }
+        .d-inline { display: inline; }
+        .btn-danger {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: inherit;
+            color: #fff;
+            background: #dc2626;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-danger:hover { background: #b91c1c; }
         .btn-back {
             display: inline-flex;
             align-items: center;
@@ -216,5 +241,8 @@
 
     @yield('content')
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@stack('scripts')
 </body>
 </html>

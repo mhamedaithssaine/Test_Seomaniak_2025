@@ -49,4 +49,13 @@ class ContactController extends Controller
             ->route('contacts.index')
             ->with('success', 'Contact mis à jour avec succès.');
     }
+
+    public function destroy(int $contact)
+    {
+        $this->service->delete($contact);
+
+        return redirect()
+            ->route('contacts.index')
+            ->with('success', 'Contact supprimé avec succès.');
+    }
 }
