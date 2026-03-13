@@ -12,6 +12,13 @@ class ContactController extends Controller
     ) {
     }
 
+    public function index()
+    {
+        $contacts = $this->service->list(10);
+
+        return view('contacts.index', compact('contacts'));
+    }
+
     public function create()
     {
         return view('contacts.create');
@@ -22,7 +29,7 @@ class ContactController extends Controller
         $this->service->create($request->validated());
 
         return redirect()
-            ->back()
+            ->route('contacts.index')
             ->with('success', 'Contact créé avec succès.');
     }
 }

@@ -3,6 +3,8 @@
 @section('title', 'Nouveau contact')
 
 @section('content')
+    <a href="{{ route('contacts.index') }}" class="btn-back">← Retour à la liste</a>
+
     <div class="card">
         <h1 class="card-title">Nouveau contact</h1>
 
