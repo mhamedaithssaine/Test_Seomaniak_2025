@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Contact;
 use App\Repositories\ContactRepositoryInterface;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class ContactService
 {
@@ -11,6 +12,13 @@ class ContactService
         private readonly ContactRepositoryInterface $contacts
     ) {
     }
+
+    public function list(int $perPage = 10): LengthAwarePaginator
+    {
+        return $this->contacts->paginate($perPage);
+    }
+
+   
 
     public function create(array $data): Contact
     {
