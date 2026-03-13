@@ -149,6 +149,7 @@
         .data-table th { background: #f8fafc; font-weight: 600; color: var(--text); }
         .data-table tr:last-child td { border-bottom: none; }
         .data-table tbody tr:hover { background: #f8fafc; }
+        .data-table .text-end { text-align: right; }
         .btn-link {
             display: inline-flex;
             align-items: center;

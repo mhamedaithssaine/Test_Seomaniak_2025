@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 use App\Services\ContactService;
 
 class ContactController extends Controller
@@ -31,5 +32,21 @@ class ContactController extends Controller
         return redirect()
             ->route('contacts.index')
             ->with('success', 'Contact créé avec succès.');
+    }
+
+    public function edit(int $contact)
+    {
+        $contact = $this->service->get($contact);
+
+        return view('contacts.edit', compact('contact'));
+    }
+
+    public function update(UpdateContactRequest $request, int $contact)
+    {
+        $this->service->update($contact, $request->validated());
+
+        return redirect()
+            ->route('contacts.index')
+            ->with('success', 'Contact mis à jour avec succès.');
     }
 }
