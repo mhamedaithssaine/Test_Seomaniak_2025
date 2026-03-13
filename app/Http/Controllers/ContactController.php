@@ -34,6 +34,13 @@ class ContactController extends Controller
             ->with('success', 'Contact créé avec succès.');
     }
 
+    public function show(int $contact)
+    {
+        $contact = $this->service->get($contact);
+
+        return view('contacts.show', compact('contact'));
+    }
+
     public function edit(int $contact)
     {
         $contact = $this->service->get($contact);

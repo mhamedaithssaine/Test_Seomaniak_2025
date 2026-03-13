@@ -142,6 +142,19 @@
             gap: 1rem;
         }
         .page-title { font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; color: var(--text); }
+        .detail-list { margin: 0; }
+        .detail-list dt { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); margin-top: 1rem; margin-bottom: 0.25rem; }
+        .detail-list dt:first-child { margin-top: 0; }
+        .detail-list dd { margin: 0; font-size: 1rem; color: var(--text); }
+        .contact-detail-card { border-left: 4px solid var(--accent); }
+        .contact-detail-card .page-header { margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+        .detail-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+        .detail-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .detail-item__label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.375rem; }
+        .detail-item__value { font-size: 1.0625rem; font-weight: 500; color: var(--text); line-height: 1.5; }
+        .detail-item__value a { color: var(--accent); text-decoration: none; }
+        .detail-item__value a:hover { text-decoration: underline; }
+        .contact-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; flex-shrink: 0; }
         .table-wrap { border-radius: var(--radius); border: 1px solid var(--border); overflow-x: auto; min-width: 0; }
         .table-wrap--scroll { max-height: 70vh; overflow-y: auto; }
         .data-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
@@ -175,6 +188,38 @@
             transition: border-color 0.2s, background 0.2s;
         }
         .btn-link:hover { background: #f0fdfa; border-color: var(--accent); color: var(--accent-hover); }
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: inherit;
+            color: #475569;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .btn-view:hover { background: #f1f5f9; border-color: #cbd5e1; color: #334155; }
+        .btn-edit {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: inherit;
+            color: var(--accent);
+            background: #f0fdfa;
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .btn-edit:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
         .d-inline { display: inline; }
         .btn-danger {
             display: inline-flex;
@@ -183,14 +228,14 @@
             font-size: 0.875rem;
             font-weight: 500;
             font-family: inherit;
-            color: #fff;
-            background: #dc2626;
-            border: none;
+            color: #dc2626;
+            background: #fef2f2;
+            border: 1px solid #dc2626;
             border-radius: var(--radius);
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
-        .btn-danger:hover { background: #b91c1c; }
+        .btn-danger:hover { background: #dc2626; color: #fff; border-color: #dc2626; }
         .btn-back {
             display: inline-flex;
             align-items: center;
